@@ -2,7 +2,7 @@
 
 Architecture-first working material for building Three.js / WebGL features with
 Claude Code (the patterns apply to Cursor and Codex too). This is a *workflow*
-repo: the value is in the process, not a runnable app.
+repo: the value is in the process and the durable artifacts, not a runnable app.
 
 Hub: <https://aetumi.app/claude-code-threejs>
 
@@ -10,9 +10,10 @@ Hub: <https://aetumi.app/claude-code-threejs>
 
 | File | Use it when |
 | --- | --- |
-| [`task-brief.md`](./task-brief.md) | Starting a 3D task. A fill-in brief that locks stack, boundaries, file plan, acceptance criteria and a hard performance budget before any code is written. |
-| [`prompt-thinking-in-scenes.md`](./prompt-thinking-in-scenes.md) | Planning the scene. A copy-paste prompt that makes the assistant design the scene graph, camera, lights, motion, perf and fallback *on paper* for your sign-off first. |
-| [`production-checklist.md`](./production-checklist.md) | Before shipping. An ordered gate covering performance, fallbacks, accessibility, SEO and mobile. |
+| [`task-brief.md`](./task-brief.md) | Starting a 3D task. A fill-in brief that locks stack, boundaries, file plan, acceptance criteria, a hard performance budget, an a11y contract and a fallback plan before any code is written. |
+| [`prompt-thinking-in-scenes.md`](./prompt-thinking-in-scenes.md) | Planning the scene. A copy-paste prompt that makes the assistant design the scene graph, camera, lights, motion, adaptive quality, perf and fallback *on paper* for your sign-off first. |
+| [`prompt-refactor-perf.md`](./prompt-refactor-perf.md) | A scene works but janks on phones. A prompt to measure first, fix the biggest cost, and add a device-aware quality ladder — without changing the look. |
+| [`production-checklist.md`](./production-checklist.md) | Before shipping. An ordered gate covering performance, fallbacks, accessibility, SEO, mobile, cleanup and analytics. |
 
 ## The loop these support
 
@@ -20,73 +21,33 @@ Hub: <https://aetumi.app/claude-code-threejs>
 2. **Plan** — run `prompt-thinking-in-scenes.md`. Approve a concrete scene plan
    before implementation.
 3. **Implement** — let the assistant build against the approved plan + brief.
-4. **Ship** — walk `production-checklist.md` and only launch when every box is
+4. **Refine** — if it's heavy, run `prompt-refactor-perf.md` to make it adapt.
+5. **Ship** — walk `production-checklist.md`; launch only when every box is
    checked or consciously waived.
+
+Every one of these is a plain-markdown **artifact**. That's deliberate: hand the
+brief, scene plan and checklist to whichever assistant you open, and the work
+travels — Claude Code, Cursor, Codex — without losing the thread.
 
 ## Baseline assumptions
 
-- **Next.js 14 (App Router), React 18, TypeScript, `three@0.160.0`.**
+- **Next.js 14 (App Router), React 18, TypeScript, `three@0.160.0`** — real r160
+  APIs only.
 - **Server-rendered HTML + client-only 3D island** (`next/dynamic`,
   `ssr: false`) — copy and metadata are crawlable; WebGL runs only in the
   browser.
 - **Accessibility and a performance budget are requirements, not polish** —
-  `prefers-reduced-motion`, a poster fallback, capped pixel ratio and full
-  resource disposal are in the acceptance criteria from the start.
+  `prefers-reduced-motion`, a poster fallback, capped pixel ratio, adaptive
+  quality and full resource disposal are in the acceptance criteria from the
+  start.
 
-For the working reference implementation of the client-island pattern, see the
-`nextjs-threejs-starter` repo: <https://aetumi.app/nextjs-threejs-starter>.
+## Companion repos
 
----
-
-## Example backlog / roadmap
-
-# Claude Code + Three.js Example Backlog
-
-The examples in this repository should demonstrate repeatable engineering workflows rather than screenshots of generated output.
-
-## Planned examples
-
-### 1. Next.js Three.js hero
-
-Goal: create a client-side Three.js scene inside a server-rendered Next.js page while keeping the page heading, supporting copy and CTA in semantic HTML.
-
-Acceptance criteria:
-
-- explicit client boundary
-- progressive scene loading
-- responsive canvas
-- cleanup on unmount
-- reduced-motion fallback
-
-### 2. Product viewer refactor
-
-Goal: ask Claude Code to inspect a monolithic Three.js product viewer and propose a safer component/module structure before editing it.
-
-Acceptance criteria:
-
-- rendering lifecycle remains predictable
-- asset loading is isolated
-- controls and product state are separated
-- materials and textures are disposed correctly
-
-### 3. Scroll-driven scene review
-
-Goal: review a scroll-linked camera animation for frame cost, resize bugs and touch behavior.
-
-Acceptance criteria:
-
-- deterministic scroll progress
-- no duplicate animation loop
-- mobile fallback documented
-- prefers-reduced-motion supported
-
-### 4. Performance audit prompt
-
-Goal: give Claude Code a repeatable checklist for identifying excessive draw calls, large textures, unnecessary post-processing and resource leaks.
-
-## Related AETumi resources
-
-- https://aetumi.app/threejs/
-- https://aetumi.app/3d-scroll/
-- https://aetumi.app/docs/
-- https://aetumi.app/mcp/
+- Reference implementation of the client-island pattern:
+  <https://aetumi.app/nextjs-threejs-starter>
+- The cross-assistant five-phase loop these slot into:
+  <https://aetumi.app/ai-coding-3d-web>
+- Copy-paste build prompts for specific scenes:
+  <https://aetumi.app/3d-web-ai-prompts>
+- Driving all of this with grounded context via MCP:
+  <https://aetumi.app/aetumi-mcp>
