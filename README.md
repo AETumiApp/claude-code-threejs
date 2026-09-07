@@ -71,12 +71,7 @@ Before coding, propose the component boundaries and asset-loading strategy.
 
 ## Repository status
 
-Documentation-first. The next phase is to add small, reviewable examples rather than a giant starter that hides the important decisions.
-
-Example backlog: [examples/README.md](./examples/README.md)
-
-Contribution guidance: [AETumi MCP CONTRIBUTING.md](https://github.com/AETumiApp/aetumi-mcp/blob/main/CONTRIBUTING.md)
-
+Active. Runnable, production-oriented examples now live in [`examples/`](./examples/) — reviewed for performance (adaptive quality), accessibility, reduced-motion and non-WebGL fallbacks, and clean resource disposal. The set is refined and extended as new patterns land.
 ## About AETumi
 
 AETumi helps designers, developers and agencies build interactive 3D web experiences with Three.js, WebGL, Next.js, React, React Three Fiber, MCP and AI coding workflows.
