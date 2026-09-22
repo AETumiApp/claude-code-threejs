@@ -18,6 +18,12 @@ This repository focuses on giving Claude Code a better working model for tasks s
 - refactoring monolithic scene code into maintainable modules
 - adding mobile, reduced-motion and accessibility fallbacks
 
+## Featured example
+
+[**Intelligence Router**](examples/intelligence-router/) — a rotatable Three.js scene with shader-drawn lanes, ~1,000 cursor-aware particles, eight themes and a real-HTML dashboard. [Live demo](https://aetumi.app/threejs/intelligence-router/) · static, no build step.
+
+[![Intelligence Router](examples/intelligence-router/assets/og.jpg)](https://aetumi.app/threejs/intelligence-router/)
+
 ## Recommended workflow
 
 1. **Define the outcome.** State the user goal, interaction and conversion path before discussing shaders or camera movement.

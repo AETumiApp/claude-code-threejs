@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intelligence Router — Interactive Three.js Scene: A $3.85M Business in 90 Minutes | AETumi</title>
+<meta name="description" content="Drag to rotate a live Three.js intelligence router: five rules route 100 daily tasks into four model lanes, cutting cost from $500 to $66 a day. Themes, colours and speed are all adjustable.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://aetumi.app/threejs/intelligence-router/">
+<meta name="theme-color" content="#0c0b0e">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AETumi">
+<meta property="og:title" content="Intelligence Router — an interactive Three.js scene by AETumi">
+<meta property="og:description" content="Five routing rules, four model lanes, $66 a day instead of $500. Rotate it in 3D, change the theme, tune the motion.">
+<meta property="og:url" content="https://aetumi.app/threejs/intelligence-router/">
+<meta property="og:image" content="https://aetumi.app/threejs/intelligence-router/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Particles flowing through an octahedral intelligence router into four glowing model lanes, with cost and revenue dashboards.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@AETumiCorp">
+<meta name="twitter:title" content="Intelligence Router — an interactive Three.js scene by AETumi">
+<meta name="twitter:description" content="Rotate a live WebGL intelligence router in 3D. $66 a day instead of $500.">
+<meta name="twitter:image" content="https://aetumi.app/threejs/intelligence-router/assets/og.jpg">
+
+<link rel="icon" href="assets/aetumi/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/aetumi/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/aetumi/favicon-180.png">
+<link rel="preload" href="assets/fonts/Onest-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://aetumi.app/#org",
+      "name": "AETumi Corp",
+      "url": "https://aetumi.app",
+      "email": "contact@aetumi.com",
+      "telephone": "+1-347-688-9996",
+      "sameAs": ["https://x.com/AETumiCorp", "https://github.com/AETumiApp"],
+      "address": { "@type": "PostalAddress", "streetAddress": "1178 Broadway, 3rd Fl", "addressLocality": "New York", "addressRegion": "NY", "postalCode": "10001", "addressCountry": "US" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aetumi.app/threejs/intelligence-router/#page",
+      "url": "https://aetumi.app/threejs/intelligence-router/",
+      "name": "Intelligence Router — Interactive Three.js Scene",
+      "description": "A live Three.js scene of an AI intelligence router that routes 100 daily tasks across four model lanes and cuts daily cost from $500 to $66. Rotatable in 3D, with themes and motion controls.",
+      "inLanguage": "en",
+      "isPartOf": { "@type": "WebSite", "name": "AETumi", "url": "https://aetumi.app" },
+      "publisher": { "@id": "https://aetumi.app/#org" },
+      "primaryImageOfPage": "https://aetumi.app/threejs/intelligence-router/assets/og.jpg",
+      "about": ["Three.js", "WebGL", "AI model routing", "LLM cost optimisation", "data visualisation"]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to build an intelligence-router business in 90 minutes",
+      "totalTime": "PT90M",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "Pick one expensive cognitive task", "text": "Choose work clients already pay people for: research, analysis or document review." },
+        { "@type": "HowToStep", "position": 2, "name": "Break the job into three tasks", "text": "Split it into routine work, broad parallel search and long-context reading." },
+        { "@type": "HowToStep", "position": 3, "name": "Connect Kimi K3 via API", "text": "Set up the agent swarm for parallel search and test it on real data." },
+        { "@type": "HowToStep", "position": 4, "name": "Connect GPT-6 AETumi", "text": "Reserve the most capable model for hard judgment, with dynamic reasoning effort." },
+        { "@type": "HowToStep", "position": 5, "name": "Build the intelligence router", "text": "Write four routing rules and verify every output before it ships." },
+        { "@type": "HowToStep", "position": 6, "name": "Find your first client", "text": "Price the job against what humans are paid to do it today." }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  /* Futura AE: dung dung phong cua trang chu aetumi.app (tu host o /fonts/).
+     Onest: phong chu than bai cua trang chu, ban mo (OFL), chep kem. */
+  @font-face{font-family:"Futura AE";src:url(/fonts/Futura-Light.ttf) format("truetype");font-weight:300;font-display:swap}
+  @font-face{font-family:"Futura AE";src:url(/fonts/Futura-Book.ttf) format("truetype");font-weight:400;font-display:swap}
+  @font-face{font-family:"Futura AE";src:url(/fonts/Futura-Regular.ttf) format("truetype");font-weight:500;font-display:swap}
+  @font-face{font-family:"Futura AE";src:url(/fonts/Futura-Bold.ttf) format("truetype");font-weight:700;font-display:swap}
+  @font-face{font-family:"Futura AE";src:url(/fonts/Futura-Heavy.ttf) format("truetype");font-weight:800;font-display:swap}
+  @font-face{font-family:Onest;src:url(assets/fonts/Onest-latin.woff2) format("woff2");font-weight:100 900;font-display:swap}
+
+  :root{
+    --nen:#0c0b0e; --the:#15121c; --ke:#26222e; --ray:#221e2b;
+    --chu:#f2f0f6; --xam:#8f8b97; --xam2:#7f7b88; --xam3:#b7b4bf;
+    --cam:#c9f73d; --luc:#a983ff;
+    --l0:#a983ff; --l1:#33e1ff; --l2:#ffc861; --l3:#c9f73d;
+    --fu:"Futura AE","Futura","Century Gothic","Jost",Onest,system-ui,sans-serif;
+    --on:Onest,"Onest Fallback",system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;background:var(--nen);color:var(--chu);font-family:var(--on);transition:background .5s ease}
+  a{color:inherit}
+  .so-deu{font-variant-numeric:tabular-nums}
+
+  /* ---------- san khau 1920x1080 ---------- */
+  #man{position:relative;width:100%;height:100vh;height:100svh;overflow:hidden;background:var(--nen);
+       touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+  #man.dang-keo{cursor:grabbing}
+  #man.tro-tay{cursor:pointer}
+  @media (max-aspect-ratio:4/3){ #man{height:auto;aspect-ratio:16/9} }
+  #gl{position:absolute;display:block}
+  #san{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;pointer-events:none;font-family:var(--on);color:var(--chu)}
+  #san *{margin:0}
+  #hud-phang,#nhan3d{position:absolute;inset:0;transform-origin:50% 50%}
+  .ab{position:absolute;white-space:nowrap}
+  .nhan{font:500 11px/1 var(--fu);letter-spacing:3.4px;color:var(--xam);text-transform:uppercase}
+
+  #tieu{left:30px;top:20px;font:800 44px/1.15 var(--fu);letter-spacing:.5px;color:var(--chu)}
+  #phu{left:30px;top:83px;font:500 11.5px/1 var(--fu);letter-spacing:2.6px;color:var(--xam)}
+  #phu b{color:var(--cam);font-weight:700}
+  #dh-nhan{right:30px;top:40px}
+  #dh{right:30px;top:55px;font:700 32px/1 var(--on);letter-spacing:.5px;color:var(--chu)}
+  .ke{position:absolute;height:1px;background:var(--ke)}
+
+  /* luat */
+  .luat{position:absolute;left:30px;width:300px;height:43px;background:var(--the);border-left:3px solid;opacity:0;
+        pointer-events:auto;cursor:pointer;transition:background .25s ease,box-shadow .25s ease}
+  .luat.sang{background:color-mix(in srgb,var(--the) 70%,currentColor 30%);box-shadow:0 0 0 1px color-mix(in srgb,transparent 60%,currentColor 40%),0 0 26px -6px currentColor}
+  .luat .so{position:absolute;left:11px;top:9px;font:800 21px/1 var(--fu)}
+  .luat .t{position:absolute;left:39px;top:6px;font:600 13px/1.2 var(--on);color:var(--chu)}
+  .luat .s{position:absolute;left:39px;top:24px;font:400 11px/1.2 var(--on);color:var(--xam2)}
+  .luat .p{position:absolute;right:10px;top:16px;font:400 11px/1 var(--on);color:var(--xam2)}
+  #l1{border-color:var(--l3);color:var(--l3)} #l2{border-color:var(--l2);color:var(--l2)}
+  #l3{border-color:var(--l1);color:var(--l1)} #l4{border-color:var(--l0);color:var(--l0)} #l5{border-color:var(--chu);color:var(--chu)}
+
+  #goal{text-align:center;font:400 11px/16px var(--on);color:#d8d5de}
+  #goal span{display:block;font:500 11px/16px var(--fu);letter-spacing:3.4px}
+
+  .dong{position:absolute;left:1560px;width:330px}
+  .dong .l{position:absolute;left:0;font:400 11px/1 var(--on);color:var(--xam3)}
+  .dong .r{position:absolute;right:0;font:700 23px/1 var(--on);font-variant-numeric:tabular-nums}
+  .thanh{position:absolute;left:1560px;width:330px;height:11px;background:var(--ray)}
+  .thanh i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:0 2px 2px 0}
+  #cp1{color:var(--luc)} #bp1{background:var(--luc);box-shadow:0 0 14px -2px var(--luc)}
+  #cp2{color:var(--cam)} #bp2{background:var(--cam);box-shadow:0 0 14px -2px var(--cam)}
+  #tiet{left:1560px;top:317px;font:700 15px/1 var(--fu);letter-spacing:.3px;color:var(--luc)}
+  #cthuc{left:1560px;top:343px;font:400 10.5px/1 var(--on);color:var(--xam2)}
+  .bang{position:absolute;left:1560px;width:330px;height:14px;font:400 11px/1 var(--on)}
+  .bang .l{position:absolute;left:0;color:var(--xam3)}
+  .bang .r{position:absolute;right:0;font-weight:700;color:var(--chu)}
+
+  .cau{position:absolute;white-space:nowrap;transition:opacity .2s ease;text-shadow:0 0 3px var(--nen),0 0 8px var(--nen),0 0 14px var(--nen)}
+  .cau .n{font:700 18px/1 var(--fu);letter-spacing:.3px;color:var(--chu);display:block;margin-bottom:6px;transition:text-shadow .25s ease}
+  .cau.sang .n{text-shadow:0 0 18px currentColor}
+  .cau .m{font:400 11px/16px var(--on);color:#c3c0cb;display:block}
+  .cau .g{font:700 12.5px/16px var(--on);display:block}
+  #c0 .g{color:var(--l0)} #c1 .g{color:var(--l1)} #c2 .g{color:var(--l2)} #c3 .g{color:var(--l3)}
+
+  #rt{left:0;top:0;font:500 12.5px/1 var(--fu);letter-spacing:4px;color:#e6e3ec}
+  #rt2{left:0;top:0;font:400 10.5px/1 var(--on);color:#e9e7ef}
+
+  #think{left:30px;top:460px;font:400 11px/18px var(--on);color:var(--xam3)}
+  #think .x{color:var(--luc)}
+
+  #ray{left:30px;top:850px;width:1140px;height:3px;background:var(--ray);position:absolute}
+  #ray i{position:absolute;left:0;top:0;height:3px;background:var(--cam);width:0;box-shadow:0 0 10px var(--cam)}
+  #vach{position:absolute;top:842px;width:2px;height:19px;background:var(--cam);margin-left:-1px}
+  .cham{position:absolute;top:851px;width:0;height:0}
+  .cham b{position:absolute;left:-4px;top:-4px;width:8px;height:8px;border-radius:50%;background:var(--ray)}
+  .cham.qua b{background:var(--cam)}
+  .cham.dang b{left:-8px;top:-8px;width:16px;height:16px;background:var(--cam);box-shadow:0 0 0 3px color-mix(in srgb,transparent 70%,var(--cam) 30%),0 0 18px var(--cam)}
+  .buoc{position:absolute;top:872px;width:182px;overflow:hidden;white-space:nowrap}
+  .buoc .tg{font:500 11px/1 var(--fu);letter-spacing:1px;color:var(--xam3);display:block;height:22px}
+  .buoc .td{font:400 11.5px/16px var(--on);color:var(--xam3);display:block;height:18px}
+  .buoc .ph{font:400 10.5px/1.3 var(--on);color:var(--xam2);display:block}
+  .buoc.dang .tg{color:var(--chu);font-weight:700}
+  .buoc.dang .td{color:var(--chu);font:700 13.5px/16px var(--fu)}
+
+  .dn{position:absolute;top:840px;width:214px;height:150px;background:var(--the);border-top:3px solid}
+  .dn .ten{position:absolute;left:12px;top:13px;font:700 12px/1 var(--fu);letter-spacing:1.6px}
+  .dn .gia{position:absolute;left:12px;top:30px;font:400 10.5px/1 var(--on);color:var(--xam2)}
+  .dn .kh{position:absolute;left:12px;top:55px;font:500 13px/1 var(--on)}
+  .dn .tien{position:absolute;left:12px;top:76px;font:700 23px/1 var(--on);font-variant-numeric:tabular-nums}
+  .dn .ha{position:absolute;left:12px;top:107px;font:400 9.5px/1 var(--on);color:var(--xam2)}
+  .dn canvas{position:absolute;left:12px;top:126px}
+  #dn0{border-color:var(--l2)} #dn0 .kh{color:var(--l2)}
+  #dn1{border-color:var(--l3)} #dn1 .kh{color:var(--l3)}
+  #dn2{border-color:var(--l1)} #dn2 .kh{color:var(--l1)}
+  #tong{left:1210px;top:1012px;font:800 27px/1 var(--fu);color:var(--cam);text-shadow:0 0 22px color-mix(in srgb,transparent 55%,var(--cam) 45%)}
+  #nam{left:1470px;top:1030px;font:400 11px/1 var(--on);color:var(--xam3)}
+  #chan{left:30px;top:1051px;font:400 10.5px/1 var(--on);color:var(--xam2)}
+  #tacgia{right:30px;top:1049px;font:700 12.5px/1 var(--fu);letter-spacing:.4px;color:#eceaf0}
+  #tacgia i{font-style:normal;color:var(--cam)}
+
+  /* ---------- con tro, gon song, goi y ---------- */
+  #con-tro{position:absolute;left:0;top:0;width:340px;height:340px;margin:-170px 0 0 -170px;border-radius:50%;pointer-events:none;
+           background:radial-gradient(circle,color-mix(in srgb,transparent 80%,var(--cam) 20%) 0%,transparent 62%);
+           mix-blend-mode:screen;opacity:0;transition:opacity .35s ease;z-index:3}
+  #con-tro.hien{opacity:1}
+  .gon{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;border:1.5px solid var(--cam);pointer-events:none;z-index:3;
+       animation:gon .9s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes gon{to{transform:scale(14);opacity:0}}
+  #goi-y{position:absolute;left:880px;top:738px;transform:translateX(-50%);z-index:4;pointer-events:none;white-space:nowrap;
+         font:500 11px/1 var(--fu);letter-spacing:2.4px;text-transform:uppercase;color:var(--chu);
+         padding:10px 16px;border-radius:100px;background:color-mix(in srgb,transparent 45%,var(--the) 55%);
+         border:1px solid var(--ke);backdrop-filter:blur(8px);transition:opacity .6s ease}
+  #goi-y.an{opacity:0}
+
+  /* ---------- bang dieu khien ---------- */
+  #nut-dk{position:absolute;left:50%;bottom:16px;margin-left:-23px;z-index:6;width:46px;height:46px;border-radius:50%;cursor:pointer;
+          display:grid;place-items:center;color:var(--chu);border:1px solid var(--ke);
+          background:color-mix(in srgb,transparent 35%,var(--the) 65%);backdrop-filter:blur(10px);
+          transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+  #nut-dk:hover{transform:rotate(60deg);border-color:var(--cam);box-shadow:0 0 22px -4px var(--cam)}
+  #nut-dk svg{width:20px;height:20px}
+  #dk{position:absolute;left:18px;top:18px;z-index:6;width:318px;max-height:calc(100% - 36px);overflow:auto;cursor:default;
+      padding:18px 18px 16px;border-radius:18px;color:var(--chu);font:400 13px/1.4 var(--on);
+      background:color-mix(in srgb,transparent 18%,var(--the) 82%);border:1px solid var(--ke);
+      backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 24px 60px -18px rgba(0,0,0,.7);user-select:none}
+  #dk h2{font:800 15px/1 var(--fu);letter-spacing:2.4px;text-transform:uppercase;margin:0}
+  #dk h3{font:500 10.5px/1 var(--fu);letter-spacing:2.6px;text-transform:uppercase;color:var(--xam);margin:18px 0 9px}
+  .dk-dau{display:flex;align-items:center;justify-content:space-between}
+  #dk-dong{all:unset;cursor:pointer;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;color:var(--xam3)}
+  #dk-dong:hover,#dk-dong:focus-visible{background:var(--ke);color:var(--chu)}
+  #dk-theme{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+  .mau-the{all:unset;cursor:pointer;border-radius:11px;padding:9px 10px;border:1px solid var(--ke);display:flex;flex-direction:column;gap:7px;
+           transition:border-color .2s ease,transform .2s ease}
+  .mau-the:hover{transform:translateY(-1px);border-color:var(--xam)}
+  .mau-the[aria-pressed="true"]{border-color:var(--cam);box-shadow:0 0 0 1px var(--cam) inset}
+  .mau-the:focus-visible{outline:2px solid var(--cam);outline-offset:2px}
+  .cham4{display:flex;gap:4px}.cham4 i{width:13px;height:13px;border-radius:50%;box-shadow:0 0 8px -1px currentColor}
+  .mau-the .ten{font:500 11px/1 var(--fu);letter-spacing:1px;color:#f2f0f6}
+  .dk-mau{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .dk-mau label{display:flex;flex-direction:column;gap:5px;font-size:11px;color:var(--xam3)}
+  .dk-mau input{width:100%;height:30px;border:1px solid var(--ke);border-radius:8px;background:transparent;padding:2px;cursor:pointer}
+  .truot{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center;margin-bottom:10px}
+  .truot span{font-size:12px;color:var(--xam3)} .truot output{font:600 12px/1 var(--on);font-variant-numeric:tabular-nums}
+  .truot input{grid-column:1/-1;width:100%;accent-color:var(--cam);cursor:pointer}
+  .bat{display:flex;align-items:center;justify-content:space-between;padding:6px 0;font-size:12.5px;cursor:pointer}
+  .bat input{accent-color:var(--cam);width:16px;height:16px;cursor:pointer}
+  .dk-nut{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:14px}
+  .dk-nut button{all:unset;cursor:pointer;text-align:center;padding:9px 4px;border-radius:9px;border:1px solid var(--ke);font:500 11px/1 var(--fu);letter-spacing:1px}
+  .dk-nut button:hover,.dk-nut button:focus-visible{border-color:var(--cam);color:var(--cam)}
+  #dk select{width:100%;padding:8px;border-radius:8px;border:1px solid var(--ke);background:var(--nen);color:var(--chu);font:inherit}
+  .dk-meo{margin:14px 0 0;font-size:11px;line-height:1.5;color:var(--xam)}
+  @media (max-width:600px){ #dk{left:10px;right:10px;top:auto;width:auto;bottom:70px;max-height:70vh} }
+
+  #xoay{display:none}
+  @media (max-aspect-ratio:4/3){
+    #xoay{display:block;text-align:center;font:500 11px/1.6 var(--fu);letter-spacing:1.6px;text-transform:uppercase;color:var(--xam3);padding:12px 16px 0}
+  }
+
+  /* ---------- bai viet ---------- */
+  article{max-width:860px;margin:0 auto;padding:76px 24px 40px;font:400 16.5px/1.75 var(--on);color:#cdcad4}
+  article h2{font:700 clamp(24px,3.2vw,34px)/1.2 var(--fu);letter-spacing:.3px;color:var(--chu);margin:60px 0 14px}
+  article h2:first-child{margin-top:0}
+  article h3{font:700 18px/1.4 var(--fu);color:var(--chu);margin:26px 0 6px}
+  article p{margin:0 0 14px}
+  article .eye{font:500 11px/1 var(--fu);letter-spacing:3.4px;color:var(--cam);text-transform:uppercase;margin-bottom:16px}
+  article ol,article ul{padding-left:22px;margin:0 0 16px} article li{margin:0 0 6px}
+  article strong{color:var(--chu)}
+  article kbd{font:500 12px/1 var(--on);padding:3px 7px;border-radius:6px;border:1px solid var(--ke);background:var(--the);color:var(--chu)}
+  .luoi{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:18px 0 8px}
+  .o{background:var(--the);border-top:3px solid;padding:14px 16px;font:400 13.5px/1.6 var(--on);color:#b7b4bf}
+  .o b{display:block;font:700 16px/1.3 var(--fu);color:var(--chu);margin-bottom:4px}
+  .bangso{width:100%;border-collapse:collapse;font:400 14px/1.5 var(--on);margin:12px 0 18px}
+  .bangso th,.bangso td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--ke)}
+  .bangso th{color:var(--xam);font:500 10.5px/1.4 var(--fu);letter-spacing:2px;text-transform:uppercase}
+  .cuon-ngang{overflow-x:auto}
+  .luuy{border-left:3px solid var(--cam);padding:12px 16px;background:var(--the);color:#b7b4bf;font-size:14.5px}
+  .lienhe{margin-top:44px;padding:28px;background:var(--the);border-top:3px solid var(--luc)}
+  .lienhe a.nut{display:inline-block;margin-top:12px;background:var(--cam);color:var(--nen);text-decoration:none;font:700 14px/1 var(--fu);letter-spacing:1px;padding:14px 24px;border-radius:100px}
+  footer{border-top:1px solid var(--ke);padding:22px 24px 30px;text-align:center;font:400 12.5px/1.8 var(--on);color:var(--xam)}
+  footer a{text-decoration:none}
+  @media (prefers-reduced-motion:reduce){ #nut-dk,.mau-the,.luat{transition:none} .gon{animation:none;opacity:0} }
+</style>
+</head>
+<body>
+
+<section id="man" aria-label="Interactive 3D visualisation of the intelligence router — drag to rotate">
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div id="san">
+    <div id="nhan3d">
+      <div id="goal" class="ab" style="left:0;top:0"><span>ONE GOAL</span>100 tasks / day</div>
+      <div id="rt" class="ab">INTELLIGENCE ROUTER</div>
+      <div id="rt2" class="ab">rule 1 routine → cheap · rule 2 search → Swarm · rule 3 hard → AETumi · rule 4 verify</div>
+      <div class="cau" id="c0" style="left:0;top:0"><span class="n">AETumi·MAX</span><span class="m">hard judgment · 5 tasks / day</span><span class="g">$25 / day</span><span class="m" style="font-size:10.5px">LOW → MED → HIGH → MAX effort</span></div>
+      <div class="cau" id="c1" style="left:0;top:0"><span class="n">Kimi·K3</span><span class="m">long context · 10 tasks / day</span><span class="g">$20 / day</span></div>
+      <div class="cau" id="c2" style="left:0;top:0"><span class="n">K3·Swarm</span><span class="m">broad search · 25 tasks / day</span><span class="g">$15 / day</span><span class="m" style="font-size:10.5px">300 agents · 4,000 tool calls · 4.5×</span></div>
+      <div class="cau" id="c3" style="left:0;top:0"><span class="n">cheap·model</span><span class="m">routine · 60 tasks / day</span><span class="g">$6 / day</span></div>
+    </div>
+
+    <div id="goi-y" aria-hidden="true">Drag to rotate · hover the orbs · double-click to reset</div>
+    <div id="hud-phang">
+      <h1 id="tieu" class="ab">A $3.85M BUSINESS IN 90 MINUTES</h1>
+      <p id="phu" class="ab">GPT-6 AETUMI ($20 / MO) + KIMI K3 (API TOKENS) — <b>ELASTIC INTELLIGENCE</b> · WHAT AWS DID FOR COMPUTE</p>
+      <div id="dh-nhan" class="ab nhan">Build clock</div>
+      <div id="dh" class="ab">0:00:00</div>
+      <div class="ke" style="left:30px;top:108px;width:1860px"></div>
+
+      <div class="ab nhan" style="left:30px;top:131px">Router rules</div>
+      <div class="luat" id="l1" style="top:157px"><span class="so">1</span><span class="t">routine →</span><span class="s">cheap model</span><span class="p">$0.10 / task</span></div>
+      <div class="luat" id="l2" style="top:211px"><span class="so">2</span><span class="t">broad search →</span><span class="s">K3 Swarm · 300 agents</span><span class="p">parallel</span></div>
+      <div class="luat" id="l3" style="top:265px"><span class="so">3</span><span class="t">long context →</span><span class="s">Kimi K3 · 200 pages</span><span class="p">one session</span></div>
+      <div class="luat" id="l4" style="top:319px"><span class="so">4</span><span class="t">hard judgment →</span><span class="s">AETumi MAX</span><span class="p">think deep</span></div>
+      <div class="luat" id="l5" style="top:373px"><span class="so">5</span><span class="t">verify →</span><span class="s">every output</span><span class="p">before it ships</span></div>
+
+      <div id="think" class="ab">THINK → TOOL → WAIT ✗<br><span class="x">THINK ──────────────→ ✓ mid-turn steering</span></div>
+
+      <div class="ab nhan" style="left:1560px;top:131px">Cost per day</div>
+      <div class="dong" style="top:162px"><span class="l" style="top:9px">ROUTER · 4 lanes</span><span class="r" id="cp1">$0</span></div>
+      <div class="thanh" style="top:193px"><i id="bp1"></i></div>
+      <div class="dong" style="top:232px"><span class="l" style="top:9px">ALL → AETUMI MAX</span><span class="r" id="cp2">$0</span></div>
+      <div class="thanh" style="top:262px"><i id="bp2"></i></div>
+      <div id="tiet" class="ab">router saves 0%</div>
+      <div id="cthuc" class="ab">60 routine + 25 search + 10 long + 5 hard = 100 tasks</div>
+      <div class="ke" style="left:1560px;top:372px;width:330px"></div>
+      <div class="ab nhan" style="left:1560px;top:393px">Swarm</div>
+      <div class="bang" style="top:420px"><span class="l">subagents</span><span class="r">300</span></div>
+      <div class="bang" style="top:442px"><span class="l">tool calls / task</span><span class="r">4,000</span></div>
+      <div class="bang" style="top:464px"><span class="l">vs sequential</span><span class="r">4.5× faster</span></div>
+      <div class="bang" style="top:486px"><span class="l">Agent 1 → 50K tokens</span><span class="r">→ 2K conclusions</span></div>
+      <div class="bang" style="top:508px"><span class="l">Agent 2 → 80K tokens</span><span class="r">→ 3K conclusions</span></div>
+
+      <div class="ke" style="left:30px;top:790px;width:1860px"></div>
+      <div class="ab nhan" style="left:30px;top:811px">How to build it in 90 minutes</div>
+      <div id="ray"><i id="rayfill"></i></div>
+      <div id="vach"></div>
+      <div id="buocs"></div>
+
+      <div class="ab nhan" style="left:1210px;top:811px">Real businesses on this system</div>
+      <div class="dn" id="dn0" style="left:1210px"><span class="ten">VC RESEARCH</span><span class="gia">$3,000 / mo per fund</span><span class="kh" id="k0">0 clients</span><span class="tien" id="d0">$0</span><span class="ha">/ mo · infra ~$800 · margin 99%</span><canvas id="o0" width="140" height="30"></canvas></div>
+      <div class="dn" id="dn1" style="left:1436.5px"><span class="ten">COMPETITIVE INTEL</span><span class="gia">$1,500 / mo per company</span><span class="kh" id="k1">0 clients</span><span class="tien" id="d1">$0</span><span class="ha">/ mo · infra ~$600 · margin 99%</span><canvas id="o1" width="140" height="30"></canvas></div>
+      <div class="dn" id="dn2" style="left:1663px"><span class="ten">LEGAL DOCS</span><span class="gia">$2,500 / mo per firm</span><span class="kh" id="k2">0 clients</span><span class="tien" id="d2">$0</span><span class="ha">/ mo · infra ~$700 · margin 99%</span><canvas id="o2" width="140" height="30"></canvas></div>
+      <div id="tong" class="ab">$0 / mo</div>
+      <div id="nam" class="ab">≈ $0.00M / year · one laptop · one $20 subscription</div>
+      <div id="chan" class="ab">not magic and not a guaranteed $3.85M · the winner is not the largest Swarm, it's the sharpest router</div>
+      <div id="tacgia" class="ab"><i>▌</i> X: @AETumiCorp</div>
+    </div>
+  </div>
+
+  <div id="con-tro" aria-hidden="true"></div>
+
+  <button id="nut-dk" type="button" aria-label="Open scene controls" aria-expanded="false" aria-controls="dk">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+  </button>
+
+  <aside id="dk" hidden aria-label="Scene controls">
+    <div class="dk-dau"><h2>Scene controls</h2><button id="dk-dong" type="button" aria-label="Close controls">✕</button></div>
+
+    <h3>Theme</h3>
+    <div id="dk-theme"></div>
+
+    <h3>Lane colours</h3>
+    <div class="dk-mau">
+      <label>AETumi<input type="color" id="dk-l0"></label>
+      <label>Kimi<input type="color" id="dk-l1"></label>
+      <label>Swarm<input type="color" id="dk-l2"></label>
+      <label>Cheap<input type="color" id="dk-l3"></label>
+      <label>Accent<input type="color" id="dk-acc"></label>
+      <label>Accent 2<input type="color" id="dk-acc2"></label>
+    </div>
+
+    <h3>Motion &amp; system</h3>
+    <label class="truot"><span>Motion speed</span><output id="dk-speed-v">1.00×</output><input type="range" id="dk-speed" min="0" max="3" step="0.05"></label>
+    <label class="truot"><span>Particle density</span><output id="dk-density-v">100%</output><input type="range" id="dk-density" min="0.2" max="1.5" step="0.05"></label>
+    <label class="truot"><span>Glow</span><output id="dk-glow-v">100%</output><input type="range" id="dk-glow" min="0" max="2" step="0.05"></label>
+    <label class="truot"><span>3D depth</span><output id="dk-depth-v">100%</output><input type="range" id="dk-depth" min="0" max="2.5" step="0.05"></label>
+    <label class="truot"><span>Zoom</span><output id="dk-zoom-v">100%</output><input type="range" id="dk-zoom" min="0.7" max="1.6" step="0.01"></label>
+    <label class="bat">Auto-orbit when idle <input type="checkbox" id="dk-orbit"></label>
+    <label class="bat">Tilt the dashboard with the scene <input type="checkbox" id="dk-tilt"></label>
+    <label class="bat">Show dashboard <input type="checkbox" id="dk-hud"></label>
+    <label class="bat">Pause motion <input type="checkbox" id="dk-paused"></label>
+    <h3>Quality</h3>
+    <select id="dk-quality" aria-label="Render quality"><option value="1">Performance (1×)</option><option value="1.5">Balanced (1.5×)</option><option value="2">Sharp (2×)</option></select>
+
+    <div class="dk-nut"><button type="button" id="dk-replay">Replay</button><button type="button" id="dk-reset-view">Reset view</button><button type="button" id="dk-reset">Defaults</button></div>
+    <p class="dk-meo">Drag to rotate · hover or click an orb to focus its lane · double-click to reset the view. Settings are saved in this browser.</p>
+  </aside>
+</section>
+<p id="xoay">Rotate your phone for the full dashboard ↻ — or read the breakdown below</p>
+
+<article>
+  <div class="eye">Interactive Three.js scene</div>
+  <h2>Intelligence Router — what you are looking at</h2>
+  <p>One goal of <strong>100 tasks a day</strong> streams in from the left as particles. Every task passes through a single <strong>intelligence router</strong> — the wireframe octahedron — and leaves along one of four glowing lanes. Each lane ends at a model chosen for what it does best and what it costs. The dashboard counts the result live: daily cost, the saving against sending everything to the most capable model, and the monthly revenue of three businesses running on the same system.</p>
+  <p>The idea borrows from cloud computing. AWS made compute <em>elastic</em>: you stop buying the biggest server for every job and pay for exactly the capacity each job needs. The router does the same for intelligence.</p>
+
+  <h2>Try it</h2>
+  <ul>
+    <li><strong>Drag</strong> anywhere on the scene to rotate it in 3D. It keeps a little momentum when you let go.</li>
+    <li><strong>Hover</strong> an orb, a rule card or the router — that lane lights up and the others step back. <strong>Click</strong> an orb to keep its lane in focus.</li>
+    <li>Particles move out of the way of your cursor. <strong>Double-click</strong> returns to the front view.</li>
+    <li>Open the <strong>⚙ controls</strong> to switch between eight themes (AETumi Luxe, Sakura Pastel, Kintsugi Gold, Midnight, Cyber Neon, Aurora, Ocean Deep, Monochrome), repaint each lane, and tune speed, particle density, glow, 3D depth and zoom. <kbd>Esc</kbd> closes the panel.</li>
+  </ul>
+
+  <h2>The five router rules</h2>
+  <ol>
+    <li><strong>Routine → cheap model.</strong> Formatting, extraction and simple lookups at about $0.10 a task.</li>
+    <li><strong>Broad search → K3 Swarm.</strong> 300 agents search in parallel instead of one model reading sequentially.</li>
+    <li><strong>Long context → Kimi K3.</strong> Two hundred pages read in one session, without chunking.</li>
+    <li><strong>Hard judgment → AETumi MAX.</strong> The most capable model only thinks deeply where it matters.</li>
+    <li><strong>Verify every output</strong> before it ships — the rule that keeps the other four honest.</li>
+  </ol>
+
+  <h2>Four lanes, one bill</h2>
+  <div class="luoi">
+    <div class="o" style="border-color:var(--l0)"><b>AETumi·MAX</b>hard judgment<br>5 tasks / day · $25 / day<br>effort: low → med → high → max</div>
+    <div class="o" style="border-color:var(--l1)"><b>Kimi·K3</b>long context<br>10 tasks / day · $20 / day</div>
+    <div class="o" style="border-color:var(--l2)"><b>K3·Swarm</b>broad search<br>25 tasks / day · $15 / day<br>300 agents · 4,000 tool calls</div>
+    <div class="o" style="border-color:var(--l3)"><b>cheap·model</b>routine work<br>60 tasks / day · $6 / day</div>
+  </div>
+  <div class="cuon-ngang"><table class="bangso">
+    <tr><th>Setup</th><th>Tasks / day</th><th>Cost / day</th></tr>
+    <tr><td>Everything → AETumi MAX</td><td>100</td><td>$500</td></tr>
+    <tr><td>Router across 4 lanes</td><td>60 + 25 + 10 + 5 = 100</td><td><strong>$66</strong></td></tr>
+    <tr><td>Saving</td><td>—</td><td><strong>87%</strong></td></tr>
+  </table></div>
+  <p>The swarm lane is where the speed comes from. Two agents reading 50K and 80K tokens hand back 2K and 3K conclusions, so the expensive model reasons over summaries, not raw pages — about <strong>4.5× faster</strong> than doing the same work sequentially.</p>
+
+  <h2>How to build it in 90 minutes</h2>
+  <ol>
+    <li><strong>0:00 — Pick one expensive cognitive task:</strong> research, analysis or documents clients already pay people for.</li>
+    <li><strong>0:15 — Break the job into three task types:</strong> routine, parallel search via the swarm, and long context.</li>
+    <li><strong>0:30 — Connect Kimi K3 via API</strong> and set up the agent swarm; test it on real data.</li>
+    <li><strong>0:45 — Connect GPT-6 AETumi</strong> with dynamic reasoning effort for the hard cases.</li>
+    <li><strong>1:00 — Build the intelligence router:</strong> four rules, and verify everything.</li>
+    <li><strong>1:15 — Find your first client</strong> and price the job against what humans are paid to do it.</li>
+  </ol>
+
+  <h2>Three businesses on the same system</h2>
+  <div class="cuon-ngang"><table class="bangso">
+    <tr><th>Business</th><th>Price</th><th>Clients</th><th>Revenue / mo</th><th>Infra</th></tr>
+    <tr><td>VC research</td><td>$3,000 / fund</td><td>36</td><td>$108,000</td><td>~$800</td></tr>
+    <tr><td>Competitive intel</td><td>$1,500 / company</td><td>72</td><td>$108,000</td><td>~$600</td></tr>
+    <tr><td>Legal docs</td><td>$2,500 / firm</td><td>42</td><td>$105,000</td><td>~$700</td></tr>
+    <tr><td><strong>Total</strong></td><td>—</td><td>150</td><td><strong>$321,000</strong></td><td>≈ $3.85M / year</td></tr>
+  </table></div>
+  <p class="luuy">An honest caveat: this is not magic and not a guaranteed $3.85M. The figures are an illustrative scenario. The advantage is not the largest swarm — it is the sharpest router.</p>
+
+  <h2>How the scene is built</h2>
+  <p>Everything is drawn with <strong>Three.js</strong> on a 1920×1080 stage. A perspective camera is placed so the z = 0 plane maps pixel-for-pixel onto the stage; every element with depth is compensated so the front view looks exactly like a flat dashboard, and the depth only appears when you rotate. The router is a real 3D octahedron. Each lane is a pair of crossed ribbon meshes along a cubic Bézier curve — so it still reads as a volume from the side — shaded with a soft edge and a dashed centre line that flows toward its model. Around a thousand particles move each frame: the incoming stream, the traffic in each lane and the swirl around the swarm, all pushed aside by the cursor with a soft spring. The lanes drift on a 48-second loop fitted with a Fourier series. All text is real HTML over the canvas, sharp at any size and readable by search engines and screen readers.</p>
+  <p>Free to learn from and reuse — the source is published on <a href="https://github.com/AETumiApp/claude-code-threejs" rel="noopener">GitHub</a>. Visual concept inspired by <a href="https://x.com/0xkkai" rel="noopener">@0xkkai</a>.</p>
+
+  <div class="lienhe">
+    <h3 style="margin-top:0">Want a live scene like this for your product?</h3>
+    <p style="margin:0">AETumi builds Three.js and WebGL experiences, interactive dashboards and landing pages that explain complex products in seconds — and ships 158 ready-made 3D web assets you own the source of.</p>
+    <a class="nut" href="https://aetumi.app/threejs/">Explore Three.js scenes</a>
+  </div>
+</article>
+
+<footer>
+  © 2026 AETumi Corp, All Right Reserved<br>
+  <a href="mailto:contact@aetumi.com">contact@aetumi.com</a> · <a href="tel:+13476889996">+1 (347) 688-9996</a> · 1178 Broadway, 3rd Fl, New York, NY 10001<br>
+  <a href="https://aetumi.app">Designed by AETumi Corp</a>
+</footer>
+
+<script type="module" src="assets/app.js?v=5"></script>
+</body>
+</html>
