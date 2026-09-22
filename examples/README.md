@@ -15,6 +15,12 @@ Hub: <https://aetumi.app/claude-code-threejs>
 | [`prompt-refactor-perf.md`](./prompt-refactor-perf.md) | A scene works but janks on phones. A prompt to measure first, fix the biggest cost, and add a device-aware quality ladder — without changing the look. |
 | [`production-checklist.md`](./production-checklist.md) | Before shipping. An ordered gate covering performance, fallbacks, accessibility, SEO, mobile, cleanup and analytics. |
 
+## Runnable examples
+
+| Example | What it shows |
+| --- | --- |
+| [`intelligence-router/`](./intelligence-router/) | A complete interactive Three.js scene: pixel-exact perspective camera, crossed ribbon lanes, billboard shaders, cursor-avoiding particles, eight themes and a live HTML dashboard. [Live demo](https://aetumi.app/threejs/intelligence-router/) |
+
 ## The loop these support
 
 1. **Brief** — fill in `task-brief.md`. Decide the expensive things up front.
